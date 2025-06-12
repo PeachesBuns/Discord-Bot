@@ -43,12 +43,15 @@ CLIENT_ID=your_client_id_here
 
 ## Setup
 
-1. Create a Discord application and bot at the [Discord Developer Portal](https://discord.com/developers/applications)
+1. Create a Discord application and bot at the [Discord Developer Portal](https://discord.com/developers/applications), example below:
+ ![Screenshot From 2025-06-12 19-15-46](https://github.com/user-attachments/assets/2b0aa30a-3694-47c0-b3fa-f6ef420c6698)
+
 2. Enable the following Privileged Gateway Intents in your bot settings:
    - Server Members Intent
    - Message Content Intent
    - Voice States Intent
-3. Invite the bot to your server with the necessary permissions
+3. Invite the bot to your server with the necessary permissions, example installation configuration below:
+ ![installationConfig](https://github.com/user-attachments/assets/dcc6a353-f443-41bb-926b-e002c65e9645)
 4. Deploy the slash commands:
 ```bash
 node src/deploy-commands.js
