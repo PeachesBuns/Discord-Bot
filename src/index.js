@@ -88,7 +88,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
         //console.log('Log channel found:', logChannel.name);
 
     // Check if a user was disconnected
-    if (oldState.channel && !newState.channel) {
+     if (oldState.channel && !newState.channel) {
         //console.log('Disconnect detected');
         try {
             // Get the audit logs for disconnect
@@ -103,7 +103,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
             //console.log('Audit log entry found:', disconnectLog ? 'yes' : 'no');
         
         // Check if this disconnect was performed by a moderator
-        if (disconnectLog) {
+        if (disconnectLog && disconnectLog.executor.tag != oldState.member.tag) {
             const moderator = disconnectLog.executor;
             const disconnectedUser = oldState.member;
             const voiceChannel = oldState.channel;
@@ -131,7 +131,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
         const moveLog = auditLogs.entries.first();
         
         // Check if this move was performed by a moderator
-        if (moveLog) {
+        if (moveLog && moveLog.executor.tag != oldState.member.tag) {
             const moderator = moveLog.executor;
             const movedUser = oldState.member;
             const fromChannel = oldState.channel;
